@@ -4,10 +4,11 @@
  * @c: char that is being printed
  * Return: 0, if everything executes properly
  */
-int print_char(va_list c)
+int print_char(int count, va_list c)
 {
-	_putchar(va_arg(c, int))
-	return (0);
+	_putchar(va_arg(c, int));
+	count += 1;
+	return (count);
 }
 
 /**
@@ -15,21 +16,23 @@ int print_char(va_list c)
  * @s: String being printed
  * Return: length of string
  */
-int print_string(va_list s)
+int print_string(int count, va_list s)
 {
-	int len;
-	char *string;
-	string = va_arg(s, char *);
+	int i = 0;
+	char *string = va_arg(s, char *);
 
-	if (string == '\0')
+	printf("Here");
+
+	if (string == NULL)
 	{
 		string = "(null)";
 	}
-	for (len = 0; string[len] != '\0'; len++)
+	for (i = 0; string[i] != '\0' && string != NULL; i++)
 	{
-		_putchar(string[len]);
+		_putchar(string[i]);
+		count += 1;
 	}
-	return (len);
+	return (count);
 }
 
 /**
@@ -37,19 +40,26 @@ int print_string(va_list s)
  * @i: int being printed
  * Return: int
  */
-int print_int(va_list i)
+/** int print_int(va_list i)
 {
 	int n;
+
+	n = va_arg(i, int);
+
+	if (n < 0)
+	{
+		_putchar('-');
+
 }
 
-
+*/
 /**
  * print_uint - Function that prints
  * unsigned int
  * @u: unsigned int
  * Return: Unsigned int
  */
-int print_uint(va_list u)
+/** int print_uint(va_list u)
 {
 	unsigned int i;
 	unsigned int j;
@@ -60,15 +70,18 @@ int print_uint(va_list u)
 	i = va_arg(i, unsigned int);
 
 }
-
+*/
 /**
  * print_percent - function that prints
  * a percent sign
  * @p: percent
  * Return: void
  */
-void print_percent(va_list p)
+int print_percent(int count, va_list p)
 {
 	(void) p;
 	_putchar('%');
+	count += 1;
+
+	return (count);
 }
