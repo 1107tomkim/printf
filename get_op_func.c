@@ -20,14 +20,21 @@ int getop_func(int count, const char *format, unsigned int *ptr, va_list list)
 	};
 
 	int index;
+	int check = 0;
 
 	for (index = 0; type[index].character != '\0'; index++)
 	{
 		if (type[index].character == format[*(ptr) + 1])
 		{
 			count = type[index].f(count, list);
-			*(ptr) += 1;
+			check = 1;
 		}
+	}
+	if (check != 1)
+	{
+		count += 2;
+		_putchar('%');
+		_putchar(format[*(ptr) + 1]);
 	}
 	return (count);
 }

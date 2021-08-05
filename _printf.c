@@ -12,11 +12,17 @@ int _printf(const char *format, ...)
 	unsigned int *ptr = &i;
 	int count = 0;
 
+	if (format == NULL)
+		return (-1);
+
 	va_start(list, format);
 	for (i = 0; ((format != NULL) && (format[i] != '\0')); i++)
 	{
 		if (format[i] == '%')
+		{
 			count = getop_func(count, format, ptr, list);
+			i++;
+		}
 		else
 		{
 			_putchar(format[i]);
