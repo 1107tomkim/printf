@@ -1,0 +1,58 @@
+.TH  3_printf "August 2021" "0.20" "_printf man page"
+
+.SH NAME
+.B _printf
+- Formatted output conversion
+
+.SH SYNOPSIS
+.B #include "holberton.h"
+
+.B int _printf(const char *
+.I format
+.B , ...)
+
+.SH DESCRIPTION
+.B _printf()
+Prints to standard output under the control of a
+.I format
+
+.SH return value
+on successful return, functions return numbers of characters printed,
+excluding the null byte used to end output to strings
+if an output error is hit, a negative value is returned
+
+.SH Format
+.TP
+.BR c
+int is converted to an unsigned char, then the resulting character is written
+.TP
+.B s
+The const char * argument is expected to be a pointer to an array of character
+type (pointer to a string)while characters from arrays are written up to a
+terminating null byte
+.TP
+.B S
+prints a string,characters are printed as "\x" followed by their
+ASCII values in two digit hexadecimal
+.TP
+.B d, i
+int argument is converted to signed decimal
+.TP
+.B x, X
+unsigned int is converted to unsigned lowercase, or uppercase
+hexadecimal notation
+.TP
+.B u
+unsigned int converted to unsigned decimal
+.TP
+.B o, b
+unsigned int converted to unsigned octalor, binary(o,b)
+.TP
+.B p
+address is printed in hexadecimal
+.TP
+.B r
+prints a string in reverse
+.TP
+.B %
+'%' can be written but no converted arguments;
