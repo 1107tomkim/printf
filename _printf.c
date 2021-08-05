@@ -1,7 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
+ * _printf -  function that works just like a
+ * normal printf function
+ * @format: the string being tested
+ * Return: Count
  */
 int _printf(const char *format, ...)
 {
@@ -14,7 +16,7 @@ int _printf(const char *format, ...)
 	for (i = 0; ((format != NULL) && (format[i] != '\0')); i++)
 	{
 		if (format[i] == '%')
-			count = get_op_func(count, format, ptr, list);
+			count = getop_func(count, format, ptr, list);
 		else
 		{
 			_putchar(format[i]);

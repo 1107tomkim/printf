@@ -1,6 +1,7 @@
 #include "holberton.h"
 /**
  * print_char - Function that prints characters
+ * @count: printf count
  * @c: char that is being printed
  * Return: 0, if everything executes properly
  */
@@ -13,6 +14,7 @@ int print_char(int count, va_list c)
 
 /**
  * print_string - Function that prints string
+ * @count: printf count
  * @s: String being printed
  * Return: length of string
  */
@@ -35,43 +37,35 @@ int print_string(int count, va_list s)
 
 /**
  * print_int - Function that prints int
+ * @count: printf count
  * @i: int being printed
  * Return: int
  */
-/** int print_int(va_list i)
+int print_int(int count, va_list i)
 {
-	int n;
+	int num;
 
-	n = va_arg(i, int);
+	num = va_arg(i, int);
 
-	if (n < 0)
+	if (num == 0)
+	{
+		_putchar('0');
+		count++;
+		return (count);
+	}
+	if (num < 0)
 	{
 		_putchar('-');
+		num *= -1;
+		count++;
+	}
 
+	return (count);
 }
-
-*/
-/**
- * print_uint - Function that prints
- * unsigned int
- * @u: unsigned int
- * Return: Unsigned int
- */
-/** int print_uint(va_list u)
-{
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
-
-	j = 1;
-	k = 0;
-	i = va_arg(i, unsigned int);
-
-}
-*/
 /**
  * print_percent - function that prints
  * a percent sign
+ * @count: printf count
  * @p: percent
  * Return: void
  */
