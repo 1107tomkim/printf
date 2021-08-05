@@ -21,8 +21,6 @@ int print_string(int count, va_list s)
 	int i = 0;
 	char *string = va_arg(s, char *);
 
-	printf("Here");
-
 	if (string == NULL)
 	{
 		string = "(null)";

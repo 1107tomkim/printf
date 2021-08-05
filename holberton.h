@@ -15,7 +15,7 @@
 typedef struct search
 {
 	char character;
-	int (*function)(int count, va_list list);
+	int (*f)(int count, va_list list);
 } st_search;
 
 int _putchar(char c);

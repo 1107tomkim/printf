@@ -18,9 +18,9 @@ int get_op_func(int count, const char *format, unsigned int *ptr, va_list list)
 
 	for (index = 0; type[index].character != '\0'; index++)
 	{
-		if (type[index].character == format[*(ptr + 1)])
+		if (type[index].character == format[*(ptr)+ 1])
 		{
-			count = type[index].function(count, list);
+			count = type[index].f(count, list);
 			*(ptr) += 1;
 		}
 	}
