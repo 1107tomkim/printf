@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(list, format);
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
+	for (i = 0; ((format != NULL) && (format[i] != '\0')); i++)
 	{
 		if (format[i] == '%')
 			count = get_op_func(count, format, ptr, list);
