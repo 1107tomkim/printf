@@ -30,4 +30,5 @@ int print_percent(int count, va_list p);
 int getop_func(int count, const char *format, unsigned int *ptr, va_list list);
 
 int _printf(const char *format, ...);
+
 #endif
